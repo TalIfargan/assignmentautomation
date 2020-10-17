@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<h1>Register</h1>
+<form class="form form-horizontal" method="post" role="form">
+    <div class="row">
+        <div class="col-md-4">
+            {{ form.hidden_tag() }}
+            {{ wtf.form_errors(form, hiddens="only") }}
+
+            {{ wtf.form_field(form.username, placeholder='This will be used for login') }}
+            {{ wtf.form_field(form.email, placeholder='firstlast@example.com') }}
+            {{ wtf.form_field(form.fullname, placeholder='This will appear in every cover page') }}
+            {{ wtf.form_field(form.student_number, placeholder='This will appear in every cover page') }}
+            {{ wtf.form_field(form.password, placeholder='********') }}
+            {{ wtf.form_field(form.password2, placeholder='********') }}
+            {{ wtf.form_field(form.submit) }}
+        </div>
+    </div>
+</form>
+{% endblock %}

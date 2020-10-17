@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+	<h1>Hello, {{ current_user.username }}!</h1>
+<hr>
+<p>Welcome to Assignment Automation.</p>
+<p>This project meant to help you speeding and automating the tedious and boring work of preparing homework submission.</p>
+<p>That's made using automatic cover creation and pdf merging in the fastest way.</p>
+<p>If you are new - follow these steps:</p>
+<ol>
+<li>Go to <a href="{{ url_for('main.covers', username=current_user.username) }}">Covers</a> and create a new cover with the appropriate Course Name.</li>
+<li>Edit the cover you have just created to match all the information regarding this course's cover.</li>
+<li>Go to <a href="{{ url_for('main.prepare_submission') }}">Prepare Submission</a>, fill the fields, and upload the scan as pdf in the matching field. (don't worry, no data is going to be saved on the server!)</li>
+<li>Download the finished submission file.</li>
+<li>Good luck!</li>
+</ol>
+<p>DISCLAIMER: This is an initial release, this project has bugs! Please <a href="{{ url_for('main.contact') }}">Contact</a> me if you have any problem or suggestions, thank you letters are also welcomed :)&nbsp;</p>
+
+<br><br><br><p>project by: Tal Ifargan - <a href="mailto:theassignmentautomation@gmail.com">Send Me Email</a></p>
+{% endblock %}

@@ -1,0 +1,69 @@
+<HEAD>
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+    <TITLE>{{user.fullname}} - {{cover.course_name}} Assignment Number {{cover.assignment_number}}</TITLE>
+    <link href='https://fonts.googleapis.com/css?family=Assistant' rel='stylesheet'>
+    <STYLE TYPE="text/css">
+        body {
+            font-family: 'Assistant';
+        }
+
+        <!--
+        @page {
+            size: 21cm 29.7cm;
+            margin: 30mm 45mm 30mm 45mm;
+        }
+
+        -->
+    </STYLE>
+    <div>
+        <p dir="RTL" style="margin-bottom: 0.47in; border: none; padding: 0in; line-height: 100%;" align="CENTER"><img
+                src="{{ url_for('static', filename='TechnionLogo.png', _external=True)}}" width="125" height="73"
+                name="image1.png"
+                align="BOTTOM" border="0"/></p>
+    </div>
+    <p dir="RTL" style="margin-bottom: 0.11in;" align="CENTER"><br/><br/></p>
+    <p dir="RTL" style="margin-bottom: 0.11in;" align="CENTER"><br/><br/></p>
+    <p dir="RTL" style="margin-bottom: 0.11in;" align="CENTER"><span style="font-family: Assistant, serif;">
+		<span
+                style="font-size: medium;"><strong>{{cover.course_name}} {{cover.course_id}} &ndash; {{cover.semester}} {{cover.year}}</strong></span></span>
+    </p>
+    <p dir="RTL" style="margin-bottom: 0.11in;" align="CENTER"><br/><br/></p>
+    <p dir="RTL" style="margin-bottom: 0.11in;" align="CENTER"><br/><br/></p>
+    <p dir="RTL" style="margin-bottom: 0.11in;" align="CENTER"><br/><br/></p>
+    <p dir="RTL" style="margin-bottom: 0.11in;" align="CENTER"><br/><br/></p>
+    <p dir="RTL" style="margin-bottom: 0.11in;" align="CENTER"><br/><br/></p>
+    <p dir="RTL" style="margin-bottom: 0.11in;" align="CENTER"><br/><br/></p>
+    {% if cover.assignment_number != '' %}
+    <p dir="RTL" style="margin-bottom: 0.11in;" align="CENTER"><span style="font-family: Calibri;"><span
+            lang="he-IL"><span style="font-family: Assistant;"><span
+            style="font-size: medium;"><strong>מספר התרגיל</strong></span></span></span></span><span
+            style="font-family: Assistant, serif;"><span style="font-size: medium;">:</span></span><span
+            style="font-family: Assistant, serif;"><span style="font-size: medium;"> {{cover.assignment_number}}</span></span>
+    </p>
+    {% endif %}
+    {% if cover.submission_date != None %}
+    <p dir="RTL" style="margin-bottom: 0.11in;" align="CENTER"><span style="font-family: Calibri;"><span
+            lang="he-IL"><span style="font-family: Assistant;"><span
+            style="font-size: medium;"><strong>תאריך ההגשה</strong></span></span></span></span><span
+            style="font-family: Assistant, serif;"><span style="font-size: medium;">:</span></span><span
+            style="font-family: Assistant, serif;"><span
+            style="font-size: medium;"> {{cover.submission_date}}</span></span>
+    </p>
+    {% endif %}
+    <p dir="RTL" style="margin-bottom: 0.11in;" align="CENTER"><span style="font-family: Calibri;"><span
+            lang="he-IL"><span style="font-family: Assistant;"><span
+            style="font-size: medium;"><strong>שם הסטודנט</strong></span></span></span></span><span
+            style="font-family: Assistant, serif;"><span style="font-size: medium;">/</span></span><span
+            style="font-family: Calibri;"><span lang="he-IL"><span style="font-family: Assistant;"><span
+            style="font-size: medium;"><strong>ים המגיש</strong></span></span></span></span><span
+            style="font-family: Assistant, serif;"><span style="font-size: medium;">/</span></span><span
+            style="font-family: Calibri;"><span lang="he-IL"><span style="font-family: Assistant;"><span
+            style="font-size: medium;"><strong>ים</strong></span></span></span></span><span
+            style="font-family: Assistant, serif;"><span style="font-size: medium;">: </span></span></p>
+    <p dir="RTL" style="margin-bottom: 0.11in;" align="CENTER"><span style="font-family: Assistant, serif;"><span
+            style="font-size: medium;">{{user.fullname}} - {{user.student_number}}</span></span></p>
+    {% if (cover.partner_name != 'None') and (cover.partner_id != 'None') and (cover.partner_name != '') and (cover.partner_id != '') %}
+    <p dir="RTL" style="margin-bottom: 0.11in;" align="CENTER"><span style="font-family: Assistant, serif;"><span
+            style="font-size: medium;">{{cover.partner_name}} - {{cover.partner_id}}</span></span></p>
+    {% endif %}
+

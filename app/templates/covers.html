@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>{{ user.username }}</h1>
+    <hr>
+    <h2>Your covers</h2>
+    {% for cover in covers %}
+    <p>
+        <b>{{ cover.course_name }}</b><br>
+        <a href="{{ url_for('main.edit_cover', cover_name=cover.course_name)}} ">Edit cover</a> | <a href="{{ url_for('main.delete_cover', cover_name=cover.course_name)}} ">Delete cover</a> | <a href="{{ url_for('main.create_cover', cover_name=cover.course_name)}} ">Create cover</a><br>
+    </p>
+    {% endfor %}
+    <hr>
+    <h2>Create new cover</h2>
+        <div class="row">
+            <div class="col-md-4">
+                {{ wtf.quick_form(form)}}
+            </div>
+        </div>
+{% endblock %}
